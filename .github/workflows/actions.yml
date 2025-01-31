@@ -1,0 +1,15 @@
+name: Fast Food CI/CD Workflow
+run-name: ${{ github.actor }} is testing
+on: [push]
+jobs:
+  exploring:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deje eso ahi. Event ${{ github.event_name }}"
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - name: List files in the repository
+        run: |
+          ls -l ${{ github.workspace }}
+      - run: echo "Status is: ${{ job.status }}"
